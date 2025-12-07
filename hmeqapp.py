@@ -1,7 +1,6 @@
-%%writefile hmeqapp.py
 
-# -*- coding: utf-8 -*-
-# GitHub Permalink for hmeq_model.pkl: https://github.com/usmanmalick22-max/hmeq2/blob/4a6d0ba84f35c9d83cd131e94972008940ad7e9a/hmeq_model.pkl
+-*- coding: utf-8 -*-
+GitHub Permalink for hmeq_model.pkl: https://github.com/usmanmalick22-max/hmeq2/blob/4a6d0ba84f35c9d83cd131e94972008940ad7e9a/hmeq_model.pkl
 import streamlit as st
 import pickle
 import pandas as pd
