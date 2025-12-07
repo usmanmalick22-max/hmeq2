@@ -1,14 +1,15 @@
+%%writefile hmeqapp.py
 
 # -*- coding: utf-8 -*-
+# GitHub Permalink for hmeq_model.pkl: https://github.com/usmanmalick22-max/hmeq2/blob/4a6d0ba84f35c9d83cd131e94972008940ad7e9a/hmeq_model.pkl
 import streamlit as st
 import pickle
 import pandas as pd
 import sklearn  # This is needed for the pickle file to load!
 
-# Load the trained model (relative path)
+# Load the trained model from the same folder as this script
 with open("hmeq_model.pkl", "rb") as file:
     model = pickle.load(file)
-
 
 # Title for the app
 # st.title("Home Equity Loan Approval")
@@ -16,6 +17,7 @@ st.markdown(
     "<h1 style='text-align: center; background-color: #ffcccc; padding: 10px; color: #cc0000;'><b>Home Equity Loan Approval</b></h1>",
     unsafe_allow_html=True
 )
+
 
 # Numeric inputs
 st.header("Enter Loan Applicant's Details")
