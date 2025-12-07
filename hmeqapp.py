@@ -6,9 +6,9 @@ import pandas as pd
 import sklearn  # This is needed for the pickle file to load!
 
 # Load the trained model (relative path)
-MODEL_PATH = pathlib.Path(__file__).parent / "hmeq_model.pkl"
-with open(MODEL_PATH, "rb") as file:
+with open("hmeq_model.pkl", "rb") as file:
     model = pickle.load(file)
+
 
 # Title for the app
 # st.title("Home Equity Loan Approval")
