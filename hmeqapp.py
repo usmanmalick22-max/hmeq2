@@ -61,6 +61,18 @@ input_data = pd.DataFrame({
     "REASON": [reason],
     "JOB": [job]
 })
+# --- Prepare Data for Prediction ---
+# 1. One-hot encode the user's input.
+input_data_encoded = pd.get_dummies(input_data, columns=['REASON', 'JOB'])
+
+# 2. Add any "missing" columns the model expects (fill with 0).
+model_columns = model.feature_names_in_
+for col in model_columns:
+    if col not in input_data_encoded.columns:
+        input_data_encoded[col] = 0
+
+# 3. Reorder/filter columns to exactly match the model's training data.
+input_data_encoded = input_data_encoded[model_columns]
 
 # Predict button
 if st.button("Evaluate Loan"):
