@@ -62,16 +62,13 @@ input_data = pd.DataFrame({
     "JOB": [job]
 })
 
-# Prediction button
+# Predict button
 if st.button("Evaluate Loan"):
-    if model is None:
-        st.error("Model could not be loaded, cannot perform prediction.")
-    else:
-        # Use NumPy array so there are no feature names (fixes the ValueError)
-        X = input_data.values
-        prediction = model.predict(X)[0]
+    # Predict using the loaded model
+    prediction = model.predict(input_data_encoded)[0]
 
-        if prediction == 1:
-            st.write("The prediction is: **Bad Loan** 🚫")
-        else:
-            st.write("The prediction is: **Good Loan** 💲")
+    # Display result
+    if prediction == 1:
+        st.write("The prediction is: **Bad Loan** 🚫")
+    else:
+        st.write("The prediction is: **Good Loan** 💲")
