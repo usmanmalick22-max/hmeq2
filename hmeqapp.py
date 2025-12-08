@@ -67,7 +67,10 @@ if st.button("Evaluate Loan"):
     if model is None:
         st.error("Model could not be loaded, cannot perform prediction.")
     else:
-        prediction = model.predict(input_data)[0]
+        # Use NumPy array so there are no feature names (fixes the ValueError)
+        X = input_data.values
+        prediction = model.predict(X)[0]
+
         if prediction == 1:
             st.write("The prediction is: **Bad Loan** 🚫")
         else:
